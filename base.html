@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODY — Платформа модов</title>
+    <!-- Подключаем шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключаем основной CSS -->
+    <link rel="stylesheet" href="css/base/main.css">
+    <link rel="stylesheet" href="css/components/modal.css">
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="/" class="header__logo">
+                <div class="logo-icon">M</div>
+                MODY
+            </a>
+            
+            <nav class="header__nav">
+                <a href="#" class="nav-link">Все игры <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+            </nav>
+
+            <div class="header__search">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Найти игру, мод или автора">
+                <!-- <kbd>Ctrl + K</kbd> -->
+            </div>
+
+            <div class="header__actions">
+                <button class="btn btn--primary" id="uploadBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Загрузить мод
+                </button>
+                <button class="profile-btn" id="authBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        
+        <!-- HERO SECTION -->
+        <section class="hero container">
+            <div class="hero__bg">
+                <!-- Сюда кладем картинку с горами -->
+                <img src="assets/img/back.png" alt="Background">
+            </div>
+            <div class="hero__content">
+                <span class="hero__badge">Добро пожаловать, Искатель</span>
+                <h1>Знакомые игры —<br>Новые правила</h1>
+                <p>Моды, которые меняют всё. Открой для себя новые миры, улучшай графику и добавляй то, чего не хватало в оригинале.</p>
+                <div class="hero__actions">
+                    <button class="btn btn--primary" id="downloadLauncher">Скачать лаунчер</button>
+                    <button class="btn btn--outline">Смотреть моды</button>
+                </div>
+            </div>
+            <div class="hero__meta">
+                <span>Cyberpunk 2077 · Night City Reborn</span>
+            </div>
+        </section>
+
+        <!-- ВЫБЕРИ СВОЮ ИГРУ -->
+        <section class="section container">
+            <div class="section__header">
+                <h2>Выбери свою игру</h2>
+                <a href="#" class="section__link">Все игры <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <div class="games-slider">
+                <!-- Карточки игр (фон-заглушки) -->
+                <a href="#" class="game-card"><div class="game-card__img" style="background: #1e293b;"></div><span>Cyberpunk 2077</span></a>
+                <a href="#" class="game-card"><div class="game-card__img" style="background: #064e3b;"></div><span>The Elder Scrolls V: Skyrim</span></a>
+                <a href="#" class="game-card"><div class="game-card__img" style="background: #4c1d95;"></div><span>Minecraft</span></a>
+                <a href="#" class="game-card"><div class="game-card__img" style="background: #450a0a;"></div><span>S.T.A.L.K.E.R. 2</span></a>
+                <a href="#" class="game-card"><div class="game-card__img" style="background: #854d0e;"></div><span>Baldur's Gate 3</span></a>
+                <a href="#" class="game-card"><div class="game-card__img" style="background: #1e3a8a;"></div><span>The Witcher 3</span></a>
+            </div>
+        </section>
+
+        <!-- КАТАЛОГ МОДОВ -->
+        <section class="section container">
+            <div class="section__header">
+                <h2>Найди свой следующий мод</h2>
+                <div class="catalog-tabs">
+                    <a href="#" class="active">Популярные <span class="count">10 210</span></a>
+                    <a href="#">Новые</a>
+                    <a href="#">Недавно обновленные</a>
+                </div>
+                <a href="#" class="section__link">Все моды <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <div class="mods-layout">
+                <!-- Сайдбар -->
+                <aside class="sidebar">
+                    <div class="sidebar__header">
+                        <h3>Фильтры</h3>
+                        <button class="icon-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Игра</span>
+                        <select class="select-custom">
+                            <option>Все игры</option>
+                            <option>Cyberpunk 2077</option>
+                            <option>Skyrim</option>
+                        </select>
+                    </div>
+
+                    <div class="sidebar__block">
+                        <h4>Категории</h4>
+                        <div class="checkbox-list">
+                            <label class="custom-checkbox"><input type="checkbox" checked><span class="checkmark"></span><span class="label-text">Все категории</span></label>
+                            <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text">Графика и текстуры</span><span class="count">14 820</span></label>
+                            <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text">Геймплей</span><span class="count">9 460</span></label>
+                            <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text">Персонажи</span><span class="count">7 218</span></label>
+                            <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text">Оружие и броня</span><span class="count">6 340</span></label>
+                        </div>
+                        <a href="#" class="show-more">Ещё 8 категорий</a>
+                    </div>
+
+                    <div class="sidebar__block">
+                        <h4>Дополнительно</h4>
+                        <div class="checkbox-list">
+                            <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text">На русском языке</span></label>
+                            <label class="custom-checkbox"><input type="checkbox" checked><span class="checkmark"></span><span class="label-text">Только проверенные</span></label>
+                            <label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span><span class="label-text">С инструкцией</span></label>
+                        </div>
+                    </div>
+
+                    <button class="btn-reset">Сбросить фильтры</button>
+                </aside>
+
+                <!-- Сетка модов -->
+                <div class="mods-grid">
+                    <!-- Карточка 1 -->
+                    <article class="mod-card">
+                        <div class="mod-card__img" style="background: linear-gradient(135deg, #0e3a47, #07151a);">
+                            <span class="badge badge--accent">ВЫБОР РЕДАКЦИИ</span>
+                            <button class="bookmark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+                        </div>
+                        <div class="mod-card__content">
+                            <div class="mod-card__top"><span class="game">Cyberpunk 2077</span><span class="category">Графика</span></div>
+                            <h3>Night City Reborn</h3>
+                            <p>Новый свет, отражения и атмосфера города, в которой захочется вернуться.</p>
+                            <div class="mod-card__footer">
+                                <span class="author">NovaWorks</span>
+                                <div class="stats"><span>↓ 128.4 тыс.</span><span>★ 4.9</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 2 -->
+                    <article class="mod-card">
+                        <div class="mod-card__img" style="background: linear-gradient(135deg, #064e3b, #022c22);">
+                            <span class="badge">ОБНОВЛЕНО</span>
+                            <button class="bookmark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+                        </div>
+                        <div class="mod-card__content">
+                            <div class="mod-card__top"><span class="game">The Elder Scrolls V</span><span class="category">Графика</span></div>
+                            <h3>Skyrim: Northern Realms</h3>
+                            <p>Полная переработка севера Скайрима. Более 200 новых текстур высокого разрешения.</p>
+                            <div class="mod-card__footer">
+                                <span class="author">ArcticFox</span>
+                                <div class="stats"><span>↓ 85.2 тыс.</span><span>★ 4.9</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 3 -->
+                    <article class="mod-card">
+                        <div class="mod-card__img" style="background: linear-gradient(135deg, #4c1d95, #2e1065);">
+                            <span class="badge">ОБНОВЛЕНО</span>
+                            <button class="bookmark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+                        </div>
+                        <div class="mod-card__content">
+                            <div class="mod-card__top"><span class="game">Minecraft</span><span class="category">Шейдеры</span></div>
+                            <h3>Complementary Reimagined</h3>
+                            <p>Потрясающие шейдеры, которые делают игру невероятно красивой, сохраняя ванильный стиль.</p>
+                            <div class="mod-card__footer">
+                                <span class="author">EminGT</span>
+                                <div class="stats"><span>↓ 50.1 тыс.</span><span>★ 5.0</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 4 -->
+                    <article class="mod-card">
+                        <div class="mod-card__img" style="background: linear-gradient(135deg, #450a0a, #1a0505);">
+                            <span class="badge">ОБНОВЛЕНО</span>
+                            <button class="bookmark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+                        </div>
+                        <div class="mod-card__content">
+                            <div class="mod-card__top"><span class="game">S.T.A.L.K.E.R. 2</span><span class="category">Атмосфера</span></div>
+                            <h3>Zone Atmosphere</h3>
+                            <p>Густой туман, новые погодные эффекты и по-настоящему непредсказуемая Зона.</p>
+                            <div class="mod-card__footer">
+                                <span class="author">DustFall</span>
+                                <div class="stats"><span>↓ 32.8 тыс.</span><span>★ 4.7</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 5 -->
+                    <article class="mod-card">
+                        <div class="mod-card__img" style="background: linear-gradient(135deg, #1e3a8a, #172554);">
+                            <button class="bookmark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+                        </div>
+                        <div class="mod-card__content">
+                            <div class="mod-card__top"><span class="game">The Witcher 3</span><span class="category">Текстуры</span></div>
+                            <h3>The Witcher 3: HD Reworked</h3>
+                            <p>Обновление всех текстур игры до 4K. Камни, кожа, ткань и металл выглядят потрясающе.</p>
+                            <div class="mod-card__footer">
+                                <span class="author">HalkHogan</span>
+                                <div class="stats"><span>↓ 98.4 тыс.</span><span>★ 4.9</span></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Карточка 6 -->
+                    <article class="mod-card">
+                        <div class="mod-card__img" style="background: linear-gradient(135deg, #854d0e, #422006);">
+                            <button class="bookmark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg></button>
+                        </div>
+                        <div class="mod-card__content">
+                            <div class="mod-card__top"><span class="game">Baldur's Gate 3</span><span class="category">Одежда</span></div>
+                            <h3>Tam's Infinite Wardrobe</h3>
+                            <p>Огромная коллекция новой одежды и брони для ваших персонажей. Более 100 предметов.</p>
+                            <div class="mod-card__footer">
+                                <span class="author">Tam</span>
+                                <div class="stats"><span>↓ 41.2 тыс.</span><span>★ 4.8</span></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination">
+                <span class="page-btn active">1</span>
+                <span class="page-btn">2</span>
+                <span class="page-btn">3</span>
+                <span class="page-dots">...</span>
+                <span class="page-btn">8</span>
+                <span class="page-btn">9</span>
+                <span class="page-btn">10</span>
+                <span class="page-btn">→</span>
+            </div>
+        </section>
+
+        <!-- НЕ ЗНАЕШЬ С ЧЕГО НАЧАТЬ -->
+        <section class="section container">
+            <div class="section__header">
+                <h2>Не знаешь, с чего начать?</h2>
+                <a href="#" class="section__link">Все гайды <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <div class="guides-grid">
+                <a href="#" class="guide-card">
+                    <div class="guide-card__img" style="background: #1e293b;"><span class="badge">Гайды</span></div>
+                    <h3>Графика на максимуме</h3>
+                    <p>Лучшие моды для преображения картинки в Cyberpunk 2077.</p>
+                </a>
+                <a href="#" class="guide-card">
+                    <div class="guide-card__img" style="background: #064e3b;"><span class="badge">Гайды</span></div>
+                    <h3>Ещё одна жизнь в Skyrim</h3>
+                    <p>Как начать играть заново и не заскучать через 10 часов.</p>
+                </a>
+                <a href="#" class="guide-card">
+                    <div class="guide-card__img" style="background: #4c1d95;"><span class="badge">Гайды</span></div>
+                    <h3>Уютный Minecraft</h3>
+                    <p>Подборка модов для расслабляющей игры и красивого строительства.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA БАННЕР -->
+        <section class="container">
+            <div class="cta-banner">
+                <div class="cta-banner__content">
+                    <div class="cta-banner__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                    </div>
+                    <div>
+                        <h3>Твой мод может стать чьим-то любимым.</h3>
+                        <p>Делись своими работами с тысячами игроков. Мы позаботимся об остальном.</p>
+                    </div>
+                </div>
+                <button class="btn btn--primary" onclick="document.getElementById('uploadBtn').click()">Загрузить мод</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__left">
+                <a href="/" class="header__logo"><div class="logo-icon">M</div> MODY</a>
+                <p>Платформа для модов.<br>Создавай, играй, делись.</p>
+            </div>
+            <div class="footer__links">
+                <a href="#">Сообщество</a>
+                <a href="#">Для авторов</a>
+                <a href="#">Правила сообщества</a>
+                <a href="#">Поддержка</a>
+            </div>
+            <div class="footer__socials">
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+            </div>
+        </div>
+    </footer>
+        <!-- ========================================== -->
+    <!-- МОДАЛЬНОЕ ОКНО: РЕГИСТРАЦИЯ / ВХОД         -->
+    <!-- ========================================== -->
+    <div class="modal" id="authModal" aria-hidden="true">
+        <div class="modal__overlay" data-close></div>
+        <div class="modal__box">
+            <div class="modal__header">
+                <div class="modal__logo">
+                    <div class="logo-icon">M</div> MODY
+                </div>
+                <button class="modal__close" data-close>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- ЭКРАН: РЕГИСТРАЦИЯ -->
+            <div id="registerView">
+                <h2 class="modal__title">Создать профиль</h2>
+                <p class="modal__subtitle">Сохраняй любимые моды и делись своими открытиями с сообществом.</p>
+                
+                <form class="modal__form" id="registerForm">
+                    <div class="form-group">
+                        <label>Никнейм</label>
+                        <input type="text" placeholder="Как тебя будут знать в MODY" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Электронная почта</label>
+                        <input type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <div class="password-wrapper">
+                            <input type="password" placeholder="Придумай надёжный пароль" required>
+                            <button type="button" class="toggle-password">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                            </button>
+                        </div>
+                        <span class="form-hint">Не менее 8 символов, включая буквы и цифры.</span>
+                    </div>
+                    
+                    <label class="custom-checkbox form-checkbox">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        <span class="label-text">Я принимаю пользовательское соглашение и политику конфиденциальности</span>
+                    </label>
+
+                    <button type="submit" class="btn btn--primary w-100 mt-2">Создать профиль</button>
+                </form>
+                
+                <div class="modal__footer">
+                    Уже есть профиль? <a href="#" id="showLogin">Войти</a>
+                </div>
+            </div>
+
+            <!-- ЭКРАН: ВХОД (Скрыт по умолчанию) -->
+            <div id="loginView" class="hidden">
+                <h2 class="modal__title">Вход в аккаунт</h2>
+                <p class="modal__subtitle">Рады видеть тебя снова!</p>
+                
+                <form class="modal__form" id="loginForm">
+                    <div class="form-group">
+                        <label>Email или Никнейм</label>
+                        <input type="text" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <div class="password-wrapper">
+                            <input type="password" placeholder="Твой пароль" required>
+                            <button type="button" class="toggle-password">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn--primary w-100 mt-2">Войти</button>
+                </form>
+                
+                <div class="modal__footer">
+                    Нет аккаунта? <a href="#" id="showRegister">Создать профиль</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- МОДАЛЬНОЕ ОКНО: ЗАГРУЗКА МОДА              -->
+    <!-- ========================================== -->
+    <div class="modal" id="uploadModal" aria-hidden="true">
+        <div class="modal__overlay" data-close></div>
+        <div class="modal__box modal__box--lg">
+            <div class="modal__header">
+                <div class="modal__logo">
+                    <div class="logo-icon">M</div> MODY
+                </div>
+                <button class="modal__close" data-close>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <h2 class="modal__title">Загрузить мод</h2>
+            <p class="modal__subtitle">Поделись своей работой с сообществом.</p>
+            
+            <form class="modal__form" id="uploadForm">
+                <div class="form-group">
+                    <label>Игра</label>
+                    <select class="select-custom" id="modGame" required>
+                        <option value="" disabled selected>Выбери игру</option>
+                        <option value="Cyberpunk 2077">Cyberpunk 2077</option>
+                        <option value="The Elder Scrolls V: Skyrim">The Elder Scrolls V: Skyrim</option>
+                        <option value="Minecraft">Minecraft</option>
+                        <option value="S.T.A.L.K.E.R. 2">S.T.A.L.K.E.R. 2</option>
+                        <option value="Baldur's Gate 3">Baldur's Gate 3</option>
+                        <option value="The Witcher 3">The Witcher 3</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Название мода</label>
+                    <input type="text" id="modTitle" placeholder="Как называется твой мод?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Описание</label>
+                    <textarea rows="3" id="modDesc" placeholder="Что меняет мод и как его установить?" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Категория</label>
+                        <select class="select-custom" id="modCategory" required>
+                            <option value="" disabled selected>Выбери категорию</option>
+                            <option value="Графика">Графика</option>
+                            <option value="Геймплей">Геймплей</option>
+                            <option value="Оружие">Оружие</option>
+                            <option value="Атмосфера">Атмосфера</option>
+                            <option value="Шейдеры">Шейдеры</option>
+                            <option value="Одежда">Одежда</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Версия мода</label>
+                        <input type="text" id="modVersion" value="1.0.0" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Архив мода</label>
+                    <div class="file-dropzone" id="dropzone">
+                        <input type="file" id="modFileInput" required accept=".zip,.rar,.7z">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="dropzone-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                        <span class="dropzone-title">Перетащи архив или выбери файл</span>
+                        <span class="dropzone-hint" id="fileNameDisplay">ZIP, RAR или 7Z – до 2 ГБ</span>
+                    </div>
+                </div>
+
+                <div class="modal__actions">
+                    <button type="button" class="btn btn--outline" data-close>Отмена</button>
+                    <button type="submit" class="btn btn--primary">Опубликовать мод</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО: ДЕТАЛИ МОДА -->
+<div class="modal modal--full" id="modDetailModal" aria-hidden="true">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__box modal__box--detail">
+        <button class="modal__close fixed-close" data-close>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div class="detail-container">
+            <!-- Хлебные крошки -->
+            <div class="breadcrumbs">
+                <span>Главная</span> / <span>Cyberpunk 2077</span> / <span>Графика</span> / <span id="detailBreadcrumbTitle" class="current">Night City Reborn</span>
+            </div>
+
+            <!-- Верхний блок (Фото + Инфо) -->
+            <div class="detail-top">
+                <div class="detail-gallery">
+                    <div class="detail-gallery__main" style="background: #0d3545;"></div>
+                    <div class="detail-gallery__thumbs">
+                        <div class="thumb active" style="background: #0d3545;"></div>
+                        <div class="thumb" style="background: #1e3a8a;"></div>
+                        <div class="thumb" style="background: #4c1d95;"></div>
+                        <div class="thumb" style="background: #064e3b;"></div>
+                    </div>
+                </div>
+                
+                <div class="detail-info">
+                    <div class="detail-info__tags">
+                        <span class="detail-game" id="detailGame">Cyberpunk 2077</span>
+                        <span class="badge badge--accent">ВЫБОР РЕДАКЦИИ</span>
+                    </div>
+                    <h1 id="detailTitle">Night City Reborn</h1>
+                    <p class="detail-desc" id="detailDesc">Новый свет, отражения и атмосфера города, в который захочется вернуться.</p>
+                    
+                    <div class="detail-author">
+                        <span class="author-avatar">NW</span>
+                        <span class="author-name">Автор: <b id="detailAuthor">NovaWorks</b></span>
+                    </div>
+
+                    <div class="detail-stats">
+                        <div class="stat-item"><span class="stat-val"></span><span class="stat-label">Скачиваний</span></div>
+                        <div class="stat-item"><span class="stat-val">★</span><span class="stat-label">Рейтинг</span></div>
+                    </div>
+
+                    <div class="detail-table">
+                        <div class="table-row"><span>Категория</span><span id="detailCategory"></span></div>
+                        <div class="table-row"><span>Версия мода</span><span id="detailVersion"></span></div>
+                        <div class="table-row"><span>Размер архива</span><span></span></div>
+                    </div>
+
+                    <button class="btn btn--primary w-100 detail-download-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                        Скачать мод
+                    </button>
+                    <p class="download-hint">Файл проверен: Безопасно</p>
+                </div>
+            </div>
+
+            <!-- Табы -->
+            <div class="detail-tabs">
+                <a href="#" class="active">Обзор</a>
+                <a href="#">Описание</a>
+                <a href="#">Установка</a>
+                <a href="#">Файлы и версии</a>
+                <a href="#">Отзывы</a>
+            </div>
+
+            <!-- Нижний контент -->
+            <div class="detail-bottom">
+                <div class="detail-main-content">
+                    <div class="detail-update-box">
+                        <div class="update-header">
+                            <span class="update-tag">ОБНОВЛЕНИЕ 2.1.0</span>
+                            <span class="update-date">7 марта 2026</span>
+                        </div>
+                        <h3>Ночной город стал ещё выразительнее</h3>
+                        <p>Переработаны отражения на мокрых поверхностях, скорректирована яркость неона и улучшены переходы освещения в тенях.</p>
+                    </div>
+
+                    <h2 class="detail-h2">Знакомый город. Новое ощущение.</h2>
+                    <p class="detail-text">Night City Reborn переосмысляет визуальную атмосферу Cyberpunk 2077: от мягкого света витрин до глубоких отражений на залитых дождём улицах. Город сохраняет свой характер, но становится объёмнее, контрастнее и живее.</p>
+
+                    <div class="feature-cards">
+                        <div class="feature-card">
+                            <div class="feature-icon">✨</div>
+                            <h4>Новый свет</h4>
+                            <p>Более мягкие переходы света и глубокие тени.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💧</div>
+                            <h4>Живые отражения</h4>
+                            <p>Неон и огни города на мокрых поверхностях.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌫️</div>
+                            <h4>Атмосфера города</h4>
+                            <p>Выразительные ночи и естественная палитра.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Сайдбар детальной страницы -->
+                <div class="detail-sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Совместимость</h4>
+                        <div class="widget-table">
+                            <div class="w-row"><span>Игра</span><span id="widgetGame">Cyberpunk 2077</span></div>
+                            <div class="w-row"><span>Версия игры</span><span>2.1 и выше</span></div>
+                            <div class="w-row"><span>Платформа</span><span>PC / Windows</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-widget author-widget">
+                        <h4>Создано <span id="widgetAuthor">NovaWorks</span></h4>
+                        <p>Новый взгляд на знакомые миры. Графические модификации с вниманием к свету, деталям и атмосфере.</p>
+                        <button class="btn btn--outline w-100">Открыть профиль автора</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
